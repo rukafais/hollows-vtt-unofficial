@@ -1,0 +1,1654 @@
+ <!-- HOW TO USE: 
+- YOU WILL NEED TO BE A PRO USER
+- select Custom in the character sheet template dropdown
+- Copy the hollowsheet.html file (this one) into the HTML tab
+- Copy the hollowsheet.css file into the CSS tab
+- Save changes
+-You're done!
+
+This section manages the tabs. -->
+<input type="hidden" class="sheet-tabstoggle" name="attr_sheetTab" value="character" />
+<div>
+    <button type="action" name="act_character" class="sheet-button0">Character</button>
+    <button type="action" name="act_weapon" class="sheet-button1">Weapon</button>
+    <button type="action" name="act_weapon2" class="sheet-button2">Secondary Weapon</button>
+    <button type="action" name="act_notes" class="sheet-button3">Notes</button>
+</div>
+<div class="sheet-character">
+     <!-- This is the CHARACTER SHEET section, as you can see. Hunter details go here. If you want to add anything that's on the main body 
+     of the sheet, this is probably where you'd put it.
+     There is definitely a better way to do the death table but I'm not sure how.-->
+    <h2>Character</h2>
+    <p></p>
+        <div class='sheet-2colrow'>
+        Name: <input type="text" name="attr_char_name" />
+        Player: <input type="text" name="attr_player_name" />
+        Look: <input type="text" name="attr_look" />
+        <p></p>
+        Faction: <input type="text" name="attr_faction" />
+        Origin: <input type="text" name="attr_origin" />
+        Seed: <input type="text" name="attr_seed" />
+    </div>
+<p></p>
+    <div class='sheet-colrow'>
+    <div class="sheet-row">
+    <b>STRONG:</b> <input type="number" name="attr_strong" min="0" max="19"/> <!-- the min max limits are to represent that stat caps at 19-->
+    <b>HARD: </b><input type="number" name="attr_hard" min="0" max="19"/>
+    <b>QUICK:</b> <input type="number" name="attr_quick" min="0" max="19"/>
+    <b>SHARP:</b> <input type="number" name="attr_sharp" min="0" max="19"/>
+    <b>WISE:</b> <input type="number" name="attr_wise" min="0" max="19"/>
+    </div>
+    </div>
+<p></p> 
+<div class='sheet-row'>
+<b>RESOLVE:</b> <input type="checkbox" name="attr_resolve1">
+<input type="checkbox" name="attr_resolve2">
+<input type="checkbox" name="attr_resolve3">
+<input type="checkbox" name="attr_resolve4">
+<input type="checkbox" name="attr_resolve5">
+<input type="checkbox" name="attr_resolve6">
+<input type="checkbox" name="attr_resolve7">
+<input type="checkbox" name="attr_resolve8">
+<input type="checkbox" name="attr_resolve9">
+</div>
+<p></p>
+<b>WOUNDS:</b> <input type="checkbox" name="attr_wounds1">
+<input type="checkbox" name="attr_wounds2">
+<input type="checkbox" name="attr_wounds3">
+<input type="checkbox" name="attr_wounds4">
+<input type="checkbox" name="attr_wounds5">
+<input type="checkbox" name="attr_wounds6">
+<input type="checkbox" name="attr_wounds7">
+<input type="checkbox" name="attr_wounds8">
+<input type="checkbox" name="attr_wounds9">
+<input type="checkbox" name="attr_wounds10">
+<p></p>
+<b>WEAPON:</b> <input type="text" name="attr_wpn_name" />
+<b>FORM:</b> <input type="text" name="attr_wpn_form" />
+<p></p>
+<b>APPEARANCE/NOTES:</b> 
+<p></p>
+<textarea name="attr_wpn_look"></textarea>
+<p></p>
+<b>WEAPON:</b> <input type="text" name="attr_wpn2_name" />
+<b>FORM:</b> <input type="text" name="attr_wpn2_form" />
+<p></p>
+<b>APPEARANCE/NOTES:</b>
+<p></p>
+<textarea name="attr_wpn2_look"></textarea>
+<p></p>
+<div class='sheet-2colrow'>
+    <div class="sheet-col">
+        <h2>Exploration Equipment:</h2>
+        <fieldset class="repeating_equip">
+            <input type="text" name="attr_equip" />
+        </fieldset>
+    </div>
+    <div class="sheet-col">
+        <h2>Hunting Equipment:</h2>
+        <fieldset class="repeating_huntequip">
+            <input type="checkbox" name="attr_huntequip">
+            <input type="text" name="attr_huntequiptext" /> 
+        </fieldset>
+    </div>
+</div>
+<p></p>
+<div class='sheet-2colrow'>
+        <div class="sheet-col">
+        <label>Deaths</label>
+        1: <input type="checkbox" name="attr_death1">
+        <p></p>
+        2: <input type="checkbox" name="attr_death2">
+        <p></p>
+        3: <input type="checkbox" name="attr_death3">
+        <p></p>
+        4: <input type="checkbox" name="attr_death4">
+        <p></p>
+        5: <input type="checkbox" name="attr_death5">
+        <p></p>
+        6+: <input type="checkbox" name="attr_death6">
+        </div>
+        
+        <div class="sheet-col">
+        <label>Corruption Roll + Corruption Benefit</label>
+        0
+        <p></p>
+        2:         +1 max Resolve
+        <p></p>
+        4
+        <p></p>
+        6:         +1 to any stat
+        <p></p>
+        8
+        <p></p>
+        10:         +2 to any other stat
+        </div>
+    
+</div>
+</div>
+<div class="sheet-weapon">
+ <!-- This is the PRIMARY WEAPON SHEET. Self explanatory. It creates a dropdown menu where you can flip through each weapon and saves the checkboxes you tick. -->
+    <h2>Weapon</h2>
+    <div>
+  <label>Archetype:<label>
+  <select name="attr_weapontype">
+    <option value="thearmour" selected>The Armour</option>
+    <option value="thebludgeon">The Bludgeon</option>
+    <option value="thebook">The Book</option>
+    <option value="thegreataxe">The Greataxe</option>
+    <option value="theknife">The Knife</option>
+    <option value="thepistol">The Pistol</option>
+    <option value="therifle">The Rifle</option>
+    <option value="theshotgun">The Shotgun</option>
+    <option value="thespear">The Spear</option>
+    <option value="thestaff">The Staff</option>
+    <option value="thesword">The Sword</option>
+  </select>
+</div>
+
+<div class="character">
+<input type="hidden" class="sheet-weapontoggle" name="attr_weapontype"  value="thearmour"  /> 
+
+    <div class="sheet-thearmour">
+        <h2>THE ARMOUR</h2>
+        <h3>COMPLEXITY: 3</h3>
+        <span><i>Your stance is inviolate, your approach implacable. You are prepared for
+every eventuality. You watch others fall beside you – they’re weak. Deluded.
+Poor. They didn’t have what it takes. You have what it takes, and what it
+takes is the Armour – a wall built around what little fragility remains.</i></span>
+<p></p>
+<label>USE THIS TO:</label> Protect your allies better than anyone else
+<p></p>
+Play with different abilities in the Protected and Exposed states
+<p></p>
+Limit Entity options, forcing them to attack you instead
+<p></p>
+<h3>STAT INCREASES: HARD +1, STRONG +1</h3>
+<p></p>
+<i>Start each hunt Protected. Swap to Exposed when you mark a Wound or voluntarily
+mark 2 Resolve on your turn. Swap to Protected when you Guard or enter Support.</i>
+<p></p>
+<h2>FORMS</h2> 
+<p></p>
+<i>Pick one at character creation</i>
+<p></p>
+<input type="checkbox" name="attr_armormetal"> <span><b>Metal:</b> +1 maximum Wounds. Once per Hunt, ignore all damage from an Entity’s
+attack. <i>(Also: heavy plate, chainmail)</i></span>
+<p></p>
+<input type="checkbox" name="attr_armorleather"> <span><b>Leather:</b> When you suffer Resolve damage from an Entity attack, you suffer 1
+less damage. <i>(Also: cloak and cowl, camouflage, heavy coat)</i></span>
+<p></p>
+<input type="checkbox" name="attr_armorsilk"> <span><b>Silk:</b>  +1 Quick, +1 Sharp. Become Protected when you gain a terrain tag. Become Ex-
+posed when you discard/destroy one. <i>(Also: three-piece suit, expensive hat, lit cigarette)</i></span>
+<p></p>
+<h2>ABILITIES</h2> 
+<p></p>
+<i>Pick one from Tier One at character creation</i>
+<p></p>
+<h3>TIER ONE</h3>
+<p></p>
+<input type="checkbox" name="attr_armorbulwark"> <span><b>Bulwark.</b> <i>Everyone cowers while you alone weather the storm.</i> While Protected,
+allies in your area (aside from you) have the terrain tag Cover with the following ability: Guard manoeuvres restore +1 Resolve.
+<p></p>
+If an ally destroys this Cover tag, you become Exposed.</span>
+<p></p>
+<input type="checkbox" name="attr_armorcontrol"> <span><b>Control.</b> <i>Unburdened by fear, the chaos of combat unravels into reason.</i> While Protected,
+at the start of your turn, you may Shift 1 Threat token. 
+<p></p>
+If you end your turn in an area with no Threat, become Exposed and add 1 Threat token to the area.</span>
+<p></p>
+<input type="checkbox" name="attr_armorcounterattack"> <span><b>Counterattack.</b> <i>Take the hit, and give back tenfold.</i> While Exposed, if an enemy
+inflicts Resolve damage on you, you may make an immediate attack against them.
+<p></p>
+If you inflict Wound damage with that attack, you become Protected.</span>
+<p></p>
+<input type="checkbox" name="attr_armormartyr"> <span><b>Martyr.</b> <i>Your body is a litany of scars; a testament to your selflessness.</i> While
+Exposed, when an ally in your area would suffer Wound damage from any
+source, you may mark Wounds instead and shift to Protected.</span>
+<h3>TIER TWO</h3>
+<p></p>
+<input type="checkbox" name="attr_armorblock"> <span><b>Block.</b> <i>You decide who goes where.</i> While Protected and at Close, mark 1 Resolve to
+cancel a Shift or Reposition from or into your or an adjacent area. 
+<p></p>
+While Exposed, when the Entity Repositions an ally in your or an adjacent area, you may Reposition
+yourself instead, leaving the ally where they were.</span>
+<p></p>
+<input type="checkbox" name="attr_armorintheway"> <span><b>In The Way.</b> <i>A thousand arrows will pierce your flesh before your brother sheds blood.</i>
+When you are in a Close area and the Entity makes an attack which targets a Ranged
+area that you are adjacent to: if you are Protected, that attack deals -1/-1 damage;
+if you are Exposed, you may choose to have that attack target your area instead.</span>
+<p></p>
+<input type="checkbox" name="attr_armorgrityourteeth"> <span><b>Grit Your Teeth.</b> <i>Your reserves of vigour are unmatched.</i> While Exposed, when you
+Guard, instead of restoring 2 Resolve, you may mark 4 Resolve to restore 4 wounds.</span>
+    </div>
+    <div class="sheet-thebludgeon">
+        <h2>THE BLUDGEON</h2>
+        <h3>COMPLEXITY: 2</h3>
+        <span><i>You are strong. You are the strongest. The Alpha. A perfect machine. An
+irresistible force. The world breaks around you. Don’t hesitate. Don’t think.
+Destroy those who would try to slow you down.</i></span> 
+<p></p>
+<label>USE THIS TO:</label> Inflict lots of
+Resolve damage and Break Entities
+<p></p>
+See if you can kill the enemy before it kills you
+<p></p>
+Sacrifice standard
+tactical choices to
+do more damage
+<p></p>
+<h3>STAT INCREASES: STRONG +1, HARD +1, QUICK +1
+<p></p>
+ATTACK WITH STRONG AT CLOSE</h3>
+<h2>FORMS</h2>
+<p></p>
+<i>Pick one at character creation</i>
+<p></p>
+<input type="checkbox" name="attr_bludgagile"><span> <b>Agile:</b> 2/1. +1 maximum Resolve, +1 maximum Wounds. <i>(Also: Hammer, Cosh,
+Gauntlet)</i></span>
+<p></p>
+<input type="checkbox" name="attr_bludgbrutal"><span> <b>Brutal:</b> 3/1. +1 Resolve damage at Front. <i>(Also: Mace, Morningstar)</i></span>
+<p></p>
+<input type="checkbox" name="attr_bludgmassive"><span> <b>Massive:</b> 3/2. <i>(Also: Maul, Tree Trunk, Big Rock)</i></span>
+<p></p>
+<h2>ABILITIES</h2> 
+<p></p>
+<i>Pick one from Tier One at character creation</i>
+<p></p>
+<h3>TIER ONE</h3>
+<p></p>
+<input type="checkbox" name="attr_bludgfearless"><span> <b>Fearless.</b> <i>You never hide; you’re always where you mean to be.</i> Gain +2 maximum
+Resolve. You no longer gain the positive benefits of terrain (you gain no reduction in Wound damage from Shielded terrain, for example), but you can
+still Take Cover.</span>
+<p></p>
+<input type="checkbox" name="attr_bludggleeful"><span> <b>Gleeful.</b> <i>See the fear in its eyes.</i> When you Break an Entity, restore 2 Wounds or
+3 Resolve.</span>
+<p></p>
+<input type="checkbox" name="attr_bludgheartless"><span> <b>Heartless.</b><i>This thing’s own mother wouldn’t recognise it when you’re done.</i> Before
+you roll to attack, you may mark 1 Resolve; if you do so, your attack inflicts
++1/+0 if it hits.</span>
+<h3>TIER TWO</h3>
+<p></p>
+<input type="checkbox" name="attr_bludgcruel"><span> <b>Cruel.</b><i>You’re not trying to kill it. You’re trying to ruin it.</i> When you would inflict
+Wound damage, you may instead choose to inflict Resolve damage; if you do so,
+inflict +2 Resolve damage.</span>
+<p></p>
+<input type="checkbox" name="attr_bludgvicious"><span> <b>Vicious.</b> <i>Break its guard and make it beg.</i> You can no longer perform the Guard
+manoeuvre. When you inflict Resolve damage, restore Resolve equal to half the
+amount you inflicted (rounding up).</span>
+<p></p>
+<input type="checkbox" name="attr_bludgtireless"><span> <b>Tireless.</b><i> I don’t care if it hurts. Win.</i> At the end of your turn, mark 2 Resolve
+and place 1 Threat token on your area to make an additional attack action.</span>
+    </div>
+    <div class="sheet-thebook">
+        <h2>THE BOOK</h2>
+        <h3>COMPLEXITY: 2</h3>
+        <span><i>Words have power. If you name something, you can know it, and if you know
+it, you can control it. Speak a word aloud and the ground trembles at your
+approach; the beasts of the land recoil and cower; eyes are struck blind,
+muscles wither and crops die. A chain around the neck of the world, binding
+it to your will. Nothing is beyond your comprehension and nothing is
+outside of your reach.</i></span> 
+<p></p>
+<label>USE THIS TO:</label> Heal other
+Hunters
+<p></p>
+Control the battlefield
+<p></p>
+Attack Wyrd defence instead of Close or Ranged
+<p></p>
+<h3>STAT CHANGES: WISE +1, SHARP +1
+<p></p>
+ATTACK WITH WISE VS WYRD AT CLOSE AND RANGED</h3>
+<p></p>
+<h2>FORMS</h2>
+<p></p>
+<i>Pick one at character creation</i>
+<p></p>
+<input type="checkbox" name="attr_booksacred"><span> <b>Sacred:</b> 2/2. When you Guard, an ally in your area heals 1 Resolve. <i>(Also: Illus-
+trated family Bible, Lost apocrypha, Hallowed parchments.)</i></span>
+<p></p>
+<input type="checkbox" name="attr_bookprofane"><span> <b>Profane:</b>1/3. +1 Quick. <i>(Also: Codex Malignatus, banned texts, impish familiar.)</i></span>
+<p></p>
+<input type="checkbox" name="attr_bookeldritch"><span> <b>Eldritch:</b> 3/1. When you Focus at Close, Entity suffers 1 Resolve damage.
+<i>(Also: Litanies of the Outer Dark, bag of astral runes, strange device.)</i></span>
+<p></p>
+<h2>ABILITIES</h2> 
+<p></p>
+<i>Pick one from Tier One at character creation</i>
+<p></p>
+<h3>TIER ONE</h3>
+<p></p>
+<input type="checkbox" name="attr_bookremake"><span> <b>Remake.</b> <i>Speak their bones back into their ordained form.</i> Attack action. Mark 1
+Wound to restore 2 Wounds on an ally in your area. If performed in Support, do not mark any Wounds.</span>
+<p></p>
+<input type="checkbox" name="attr_bookbrand"><span> <b>Brand.</b> <i>Carve your dominion into its flesh.</i> Attack and mark 1 Resolve. If this at-
+tack hits, an ally in your or an adjacent area can Focus as an immediate action.</span>
+<p></p>
+<input type="checkbox" name="attr_bookleash"><span> <b>Leash.</b> <i>Down, wretch.</i> When you are at Close and the Entity Repositions an ally
+or uses an Interrupt ability, it suffers 1 Resolve damage.</span>
+<h3>TIER TWO</h3>
+<p></p>
+<input type="checkbox" name="attr_bookrebuke"><span> <b>Rebuke.</b> <i>Chastise it for daring to stand against you.</i> Close attack action. If you
+inflict Resolve damage, remove 1 Threat token from your or an adjacent area. If
+you inflict Wound damage, remove 3 Threat from your or an adjacent area.
+<p></p>
+If you miss, place 2 Threat on your area (rather than 1).</span>
+<p></p>
+<input type="checkbox" name="attr_booksacrifice"><span> <b>Sacrifice.</b>. <i>Blood for blood; the oldest accord.</i> Once per turn, when you inflict
+Wound damage, restore 1 Wound on yourself or an ally in your area.</span>
+<p></p>
+<input type="checkbox" name="attr_bookmiracle"><span> <b>Miracle.</b> <i> The world is at your disposal.</i> Mark 1 Wound and 1 Resolve to activate
+this ability. As an attack action, make a Use manoeuvre as though you were activating any one of the following pieces of Hunt equipment:
+Weighted Net, Smoke Bomb, Flare, Lure, Lucky Bullet, Bomb.</span>    
+</div>
+    <div class="sheet-thegreataxe">
+        <h2>THE GREATAXE</h2>
+        <h3>COMPLEXITY: 2</h3>
+        <span><i>You are the edge that tears the world asunder. You are born of the breed
+that ripped the rocks from the dark of the earth to make steel. Butcher.
+Dissect. Transform beast into meat; an alchemy in your undoing.</i></span> 
+<p></p>
+<label>USE THIS TO:</label>
+Inflict massive damage
+<p></p>
+Fight on the front lines
+<p></p>
+Not worry about being quick or clever
+<h3>STAT CHANGES: STRONG +2 HARD +1 WISE -1 QUICK -1
+<p></p>
+ATTACK WITH STRONG AT CLOSE</h3>
+<h2>FORMS</h2>
+<p></p>
+<i>Pick one at character creation</i>
+<p></p>
+<input type="checkbox" name="attr_greataxekeen"><span> <b>Keen:</b> 2/4. Capacity 3 <i>(Also: Greatsword, Cleaver, Mining Pick.)</i></span>
+<p></p>
+<input type="checkbox" name="attr_greataxeheavy"><span> <b>Heavy:</b> 3/3. Capacity 3 <i>(Also: Sledgehammer, Ship’s anchor, Enormous saw
+blade tied to a stick.)</i></span>
+<p></p>
+<input type="checkbox" name="attr_greataxeversatile"><span> <b>Versatile:</b> 2/3. Capacity 5 <i> (Also: Glaive, Battleaxe.)</i></span>
+<p></p>
+<h3>CAPACITY:</h3> <input type="checkbox" name="attr_axe1">
+<input type="checkbox" name="attr_axe2">
+<input type="checkbox" name="attr_axe3">
+<input type="checkbox" name="attr_axe4">
+<input type="checkbox" name="attr_axe5">
+<p></p>
+<h2>ABILITIES</h2> 
+<p></p>
+<i>Pick one from Tier One at character creation</i>
+<p></p>
+<h3>TIER ONE</h3>
+<p></p>
+<input type="checkbox" name="attr_greataxebreakbones"> <span><b>Break Bones.</b> <i>Butcher it to the marrow.</i> Close attack action. Expend 2 Capacity
+to make this attack. Inflict 2 additional Resolve damage on a hit, regardless of whether you inflict Wound damage.</span>
+<p></p>
+<input type="checkbox" name="attr_greataxenononsense"> <span><b>No Nonsense.</b> <i>Get in there.</i> When you are in Front and you suffer Wound damage from an Entity attack, suffer 1 less damage.</span>
+<p></p>
+<input type="checkbox" name="attr_greataxeroar"> <span><b>Roar.</b> <i>Howl your defiance.</i> When you Focus, you may Shift 1 Threat token towards you. When you inflict Wound damage to an Entity, you may remove 1 Threat token from your area.</span>
+<h3>TIER TWO</h3>
+<p></p>
+<input type="checkbox" name="attr_greataxecleave"> <span><b>Cleave.</b> <i>Split bone and tendon asunder.</i> Expend 2 Capacity to make this attack.
+If this attack Wounds an Entity, choose one of its attacks and reduce its damage
+by -1/-1. If the Entity Breaks a Hunter, return the damage to its original value.</span>
+<p></p>
+<input type="checkbox" name="attr_greataxecarnage"> <span><b>Carnage.</b> <i>Nothing better than a good fight.</i> When a Threat token is consumed in
+your area, restore Capacity equal to the number of Threat tokens removed as an
+immediate action.</span>
+<p></p>
+<input type="checkbox" name="attr_greataxeseered"> <span><b>Seeing Red.</b> <i>Time to die.</i> When you are Broken, you inflict +1/+1 damage and
+take 0/+1 damage.</span>
+    </div>
+    <div class="sheet-theknife">
+        <h2>THE KNIFE</h2>
+        <h3>COMPLEXITY: 1</h3>
+        <span><i>The world is trying to hurt you but you won’t let it - you won’t be taken
+advantage of - you’re sharp and cruel and quick and clever - and the Knife
+is here right alongside you, pressed into your palm, guiding you through
+the darkness and chaos. You’re going to show them they were stupid to
+underestimate you.</i></span> 
+<p></p>
+<label>USE THIS TO:</label>
+Rely on your
+speed rather
+than your brawn
+<p></p>
+Keep moving
+to stay out of
+trouble
+<p></p>
+Attack weak
+spots and
+vulnerable areas
+<p></p>
+<h3>STAT CHANGES: QUICK +1, SHARP +1, WISE +1
+<p></p>
+ATTACK WITH QUICK AT CLOSE</h3>
+<h2>FORMS</h2>
+<p></p>
+<i>Pick one at character creation</i>
+<p></p>
+<input type="checkbox" name="attr_knifeweighted"><span> <b>Weighted:</b> 2/2. In addition to the Knife’s Close attack, you may now attack at
+Ranged with Sharp <i>(Also: Throwing stars, Darts)</i></span>
+<p></p>
+<input type="checkbox" name="attr_knifekeen"><span> <b>Keen:</b> 2/3. <i>(Also: Stiletto, Punch Dagger)</i></span>
+<p></p>
+<input type="checkbox" name="attr_knifeversatile"><span> <b>Versatile:</b> 3/2. <i>(Also: Trench Knife, Knuckledusters)</i></span>
+<p></p>
+<h2>ABILITIES</h2> 
+<p></p>
+<i>Pick one from Tier One at character creation</i>
+<p></p>
+<h3>TIER ONE</h3>
+<p></p>
+<input type="checkbox" name="attr_knifebackstab"><span> <b>Backstab.</b> <i>They left themselves open; it’s more their fault than yours.</i> Inflict +1/+1
+damage when in Rear.</span>
+<p></p>
+<input type="checkbox" name="attr_knifedodge"> <span><b>Dodge.</b> <i>They’re going to wish they killed you sooner. </i>Mark 1 Resolve to defend
+with Quick instead of any other stat. If you roll under your Quick on the defend
+roll, you may Move to any adjacent area as a free action.</span> 
+<p></p>
+<input type="checkbox" name="attr_knifewhisperquick"> <span><b>Whisper-Quick.</b> <i>Kill them before they can hurt you.</i> Mark 1 Resolve to attack
+with Quick instead of any other stat. If this attack inflicts Wound damage,
+regain 1 Resolve.</span>
+<h3>TIER TWO</h3>
+<p></p>
+<input type="checkbox" name="attr_knifevanish"> <span><b>Vanish.</b> <i>It’s like you were never there.</i> When you are at Ranged or Support, you
+may mark 2 Resolve to Move into the shadows as an immediate action. While
+you’re in the shadows, remove your token from the grid; you cannot attack,
+make manoeuvres, be attacked, or otherwise interact with the Hunt.
+<p></p>
+At the start of your next turn, place your token anywhere on the grid.</span>
+<p></p>
+<input type="checkbox" name="attr_knifeghostly"> <span><b>Ghostly.</b> <i>Slip away before it gets your scent.</i> When you miss with an attack, you
+may Move as an immediate action.</span>
+<p></p>
+<input type="checkbox" name="attr_knifelightningfast"> <span><b>Lightning-Fast.</b> <i>Keep moving. It’s too slow to hit you.</i> When you Move, you automatically Guard as an immediate action.</span>
+    </div>
+    <div class="sheet-thepistol">
+        <h2>THE PISTOL</h2>
+        <h3>COMPLEXITY: 2</h3>
+        <span><i>You’re strong. Smart. Capable. The world’s set against you but with the Pistol
+resting on your hip or howling in your hand you can weather any storm.
+You’re a force to be reckoned with, and those fools will be left in your wake
+when you show them what you can do.</i></span> 
+<p></p>
+<label>USE THIS TO:</label>
+Attack from
+range or
+up close,
+whatever’s best
+<p></p>
+Power up when
+you inflict
+Wounds
+<p></p>
+Adapt to
+changing
+situations
+<p></p>
+<h3>STAT CHANGES: SHARP +1, QUICK +1, WISE +1
+<p></p>
+ATTACK WITH SHARP AT RANGED.
+<p></p>
+ATTACK WITH QUICK AT CLOSE.</h3>
+<h2>FORMS</h2>
+<p></p>
+<i>Pick one at character creation</i>
+<p></p>
+<input type="checkbox" name="attr_pistolauto"> <span><b>Automatic:</b> 1/1. Capacity 5; when you Reload, restore Capacity to full <i>(Also:
+Pepperbox)</i></span>
+<p></p>
+<input type="checkbox" name="attr_pistolrevolver"> <span><b>Revolver:</b> 2/1. Capacity 3. <i>(Also: Shortbow, Javelin, Throwing Axe)</i></span>
+<p></p>
+<input type="checkbox" name="attr_pistolhandcannon"> <span><b>Hand Cannon:</b> 3/3. Capacity 1. <i>(Also: Crossbow)</i></span>
+<p></p>
+<h3>CAPACITY:</h3> <input type="checkbox" name="attr_pistol1">
+<input type="checkbox" name="attr_pistol2">
+<input type="checkbox" name="attr_pistol3">
+<input type="checkbox" name="attr_pistol4">
+<input type="checkbox" name="attr_pistol5">
+<p></p>
+<h2>ABILITIES</h2> 
+<p></p>
+<i>Pick one from Tier One at character creation</i>
+<p></p>
+<h3>TIER ONE</h3>
+<p></p>
+<input type="checkbox" name="attr_pistolcoverfire"> <span><b>Covering Fire.</b> <i>Put it on the back foot</i>. When you would inflict Wound damage
+with an attack and instead opt to inflict Resolve damage, one ally at Close may
+make an immediate manoeuvre.</span>
+<p></p>
+<input type="checkbox" name="attr_pistolmomentum"> <span><b>Momentum.</b> <i>Feels good, doesn’t it?</i> When you inflict Wound damage, restore
+2 Resolve.</span>
+<p></p>
+<input type="checkbox" name="attr_pistolunload"> <span><b>Unload.</b> <i>Keep shooting until it can’t get up.</i> Expend both your attack and
+manoeuvre actions to make a number of Pistol attacks equal to your
+current Capacity.</span>
+<h3>TIER TWO</h3>
+<p></p>
+<input type="checkbox" name="attr_pistollastditch"> <span><b>Last-Ditch.</b> <i>Too slow.</i> When you are at Close and the Entity targets you with an
+attack, mark 1 Resolve and expend 1 Capacity from the Pistol then roll Quick.
+<p></p>
+On a success, the attack is cancelled and you or an ally in your area can make an
+immediate attack against the Entity. On a failure, you suffer 2 Wound damage
+in addition to any other damage taken.</span>
+<p></p>
+<input type="checkbox" name="attr_pistolhotfoot"> <span><b>Hotfoot.</b> <i>You make this look easy.</i> When you inflict Wound damage, you may
+make an immediate, free manoeuvre.</span>
+<p></p>
+<input type="checkbox" name="attr_pistolcomeoutshooting"> <span><b>Come Out Shooting.</b> <i>Caught your breath? Okay, now get out there.</i> +1 Capacity.
+Discard a terrain tag to Reload the Pistol to full Capacity and make an
+additional manoeuvre.</span>
+
+    </div>
+    <div class="sheet-therifle">
+        <h2>THE RIFLE</h2>
+        <h3>COMPLEXITY: 1</h3>
+        <span><i>The world is dangerous but you are more dangerous; you are the apex
+predator. You are calm; you are methodical; you are operating far above
+your base instincts. There is no wilderness or threat that you cannot tame
+or kill. The land is rotten and corrupted but you, paragon of patience,
+stand pristine above it all.</i></span> 
+<p></p>
+<label>USE THIS TO:</label>
+Attack at range
+<p></p>
+Hold your ground
+<p></p>
+Inflict Wound
+damage to
+finish the Hunt
+<p></p>
+<h3>STAT CHANGES: SHARP +1, WISE +1
+<p></p>
+ATTACK WITH SHARP AT RANGED OR CLOSE.
+<p></p>
+<i>Roll with Disadvantage when you attack from Close with the Rifle</i></h3>
+<p></p>
+<h2>FORMS</h2>
+<p></p>
+<i>Pick one at character creation</i>
+<p></p>
+<input type="checkbox" name="attr_riflerepeat"> <span><b>Repeating:</b> 3/2. Capacity 3 <i>(Also: Carbine, Lever-Action)</i></span>
+<p></p>
+<input type="checkbox" name="attr_riflehighcalibre"> <span><b>High Calibre:</b> 2/4. -1 Sharp, Capacity 1 <i>(Also: Elephant Gun, Small Cannon)</i></span>
+<p></p>
+<input type="checkbox" name="attr_rifleaccurate"> <span><b>Accurate:</b> 2/3. +1 Sharp, Capacity 1 <i>(Also: Hunting rifle, Target Rifle)</i></span>
+<p></p>
+<h3>CAPACITY:</h3> <input type="checkbox" name="attr_rifle1">
+<input type="checkbox" name="attr_rifle2">
+<input type="checkbox" name="attr_rifle3">
+<p></p>
+<h2>ABILITIES</h2> 
+<p></p>
+<i>Pick one from Tier One at character creation</i>
+<p></p>
+<h3>TIER ONE</h3>
+<p></p>
+<input type="checkbox" name="attr_rifletakeyourtime"> <span><b>Take Your Time.</b> <i>Don’t rush around like some kind of animal.</i> When you expend
+Focus, you may add +1 Wound damage to your attack and place a Threat token on your area instead of rolling with advantage; this takes place before the attack
+is rolled.</span>
+<p></p>
+<input type="checkbox" name="attr_rifleobscuredposition"> <span><b>Obscured Position.</b> <i>They won’t know what hit them.</i> When you have a terrain
+tag, inflict +1 Wound damage.</span>
+<p></p>
+<input type="checkbox" name="attr_riflepristine"> <span><b>Pristine.</b> <i>Don’t let them touch you.</i> While you still have your maximum number
+of Wounds, +1 to all stats.</span>
+<h3>TIER TWO</h3>
+<p></p>
+<input type="checkbox" name="attr_rifleeyeofstorm"> <span><b>Eye of the Storm.</b> <i>Watch the beast scurry and fret.</i> Mark 1 Resolve to make an
+attack from Range. If you attack through an area that contains Threat tokens,
+increase your Sharp for this attack by the number of Threat tokens in that area.</span>
+<p></p>
+<input type="checkbox" name="attr_rifleevasion"> <span><b>Evasion.</b> <i>No sense in dying if you don’t have to.</i> When you have a terrain tag, destroy
+it to move to Support at any time. You can do this as an immediate action in response
+to an attack; you take no damage from the attack if so.</span>
+<p></p>
+<input type="checkbox" name="attr_riflepindown"> <span><b>Pin Down.</b> <i>Not on your watch.</i> When you are at Ranged Left or Right and the
+Entity uses a manoeuvre, mark 2 Resolve and make an immediate attack
+against it. If you hit, you cause no damage, but the manoeuvre is cancelled
+without effect.</span>
+    </div>
+    <div class="sheet-theshotgun">
+        <h2>THE SHOTGUN</h2>
+        <h3>COMPLEXITY: 3</h3>
+        <span><i>There are things out there that want to kill you – terrible things,
+wretched things, bestial things. You’re not scared of them. They should be
+scared of you. You’re mess and you’re chaos, you’re indiscriminate, you’re
+a massacre waiting to happen. There’s nothing you can’t kill, nothing you
+can’t break, nothing you can’t ruin.</i></span> 
+<p></p>
+<label>USE THIS TO:</label>
+Mix it up in the
+front line
+<p></p>
+Soak up damage
+with few ill-
+effects
+<p></p>
+Play with
+different
+abilities in
+EMPTY and
+LOADED states
+<p></p>
+<h3>STAT CHANGES:  +2 HARD, +1 SHARP
+<p></p>
+ATTACK WITH SHARP AT RANGED OR CLOSE. ROLL WITH DISADVANTAGE WHEN ATTACKING FROM RANGE.</h3>
+<p></p>
+<i>The shotgun is either Empty or Loaded. When it’s Loaded, you can flip it to Empty to
+make an attack; when it’s Empty, you can make a Reload action to flip it to Loaded.
+You may only use the section of the ability matching the current state of your weapon.</i>
+<p></p>
+<h2>FORMS</h2>
+<p></p>
+<i>Pick one at character creation</i>
+<p></p>
+<input type="checkbox" name="attr_shotgunnoescape"> <span><b>No Escape:</b> 2/2. You no longer roll with disadvantage on Shotgun attacks at
+range. <i>(Also: pump action shotgun, Mare’s Leg.)</i></span>
+<p></p>
+<input type="checkbox" name="attr_shotguncarnage"> <span><b>Carnage:</b> 2/2. Attack with Strong instead of Sharp at Close. <i>(
+Also: sawn-off, Obrez rifle.)</i></span>
+<p></p>
+<input type="checkbox" name="attr_shotgunsmoke"> <span><b>Smoke:</b> 2/2. When you switch from Loaded to Empty, Guard as an immediate
+action. <i>(Also: blunderbuss, bandolier of flintlocks.)</i></span>
+<p></p>
+<h2>ABILITIES</h2> 
+<p></p>
+<i>Pick one from Tier One at character creation</i>
+<p></p>
+<h3>TIER ONE</h3>
+<p></p>
+<input type="checkbox" name="attr_shotgunsustainfire"> <span><b>Sustained Fire.</b> <i>Your blood’s up. Your hands are like lightning.</i> When you end
+your turn in an area with Threat placed on it, switch from Empty to Loaded as
+an immediate action.</span>
+<p></p>
+<input type="checkbox" name="attr_shotgungoresoaked"> <span><b>Gore-Soaked.</b> <i>Show this thing what you’re capable of.</i> When you have suffered total
+Wound damage greater than half of your maximum Wounds, +1/+1 to all attacks.</span>
+<p></p>
+<input type="checkbox" name="attr_shotgunfumesflames"> <span><b>Fumes and Flames.</b> <i>Send shells smoking like the flames of hell.</i> When you switch
+from Loaded to Empty, an ally in your area may Guard or Move as an immediate action.</span>
+<h3>TIER TWO</h3>
+<p></p>
+<input type="checkbox" name="attr_shotgungetright"> <span><b>Get Right in There.</b> <i>Don’t give it an inch.</i> Loaded: Mark 2 Resolve to attack with
+advantage at Close.<p></p> Empty: Gain the manoeuvre Smash: Make a Close attack
+with Strong at 1/1 and Reload.</span>
+<p></p>
+<input type="checkbox" name="attr_shotgunstandfight"> <span><b>Stand and Fight.</b> <i>Don’t hide like some whimpering cur.</i> Discard a terrain tag to
+re-roll an attack dice after you see the result.</span>
+<p></p>
+<input type="checkbox" name="attr_shotgunironbarrel"> <span><b>Iron-Banded Barrel.</b> <i>Good! Now, smash its fucking head in.</i> Loaded: Make an
+attack at 0/4 and switch to Empty.<p></p> Empty: Make a Close attack at 4/0 and
+switch to Loaded.</span>
+    </div>
+    <div class="sheet-thespear">
+        <h2>THE SPEAR</h2>
+        <h3>COMPLEXITY: 2</h3>
+        <span><i>There is a line between us and them and across that line is the Spear,
+keeping them away from us. Protecting the sacred from the profane.
+Defending right and killing wrong. The world is trying to swallow you and
+those you care about, but it’ll have to get through you first.</i></span> 
+<label>USE THIS TO:</label>
+Support other
+Hunters in
+combat
+<p></p>
+Manipulate
+Threat to control
+the fight
+<p></p>
+Wound the
+Entity to bring
+it down quickly
+<p></p>
+<h3>STAT CHANGES:  QUICK +1, STRONG +1, HARD +1
+<p></p>
+ATTACK WITH QUICK AT CLOSE</h3>
+<p></p>
+<h2>FORMS</h2>
+<p></p>
+<i>Pick one at character creation</i>
+<p></p>
+<input type="checkbox" name="attr_spearlight"> <span><b>Light:</b> 2/2. Quick +1 <i>(Also: Sharpened Stick)</i></span>
+<p></p>
+<input type="checkbox" name="attr_spearlong"> <span><b>Long:</b> 3/2. <i>(Also: Pike, Boar Spear)</i></span>
+<p></p>
+<input type="checkbox" name="attr_spearheavy"> <span><b>Heavy:</b> 2/3. <i>(Also: Halberd, Glaive)</i></span>
+<p></p>
+<h2>ABILITIES</h2> 
+<p></p>
+<i>Pick one from Tier One at character creation</i>
+<p></p>
+<h3>TIER ONE</h3>
+<p></p>
+<input type="checkbox" name="attr_speargoad"> <span><b>Goad.</b> <i>The stupid creature is two steps behind you.</i> When you Guard, you may place
+a Threat token on your area or an adjacent area, or Shift 1 Threat token in your area
+or an adjacent area.</span>
+<p></p>
+<input type="checkbox" name="attr_speartrap"> <span><b>Trap.</b> <i>Just try and take me down.</i> When you are in an area with 3 or more Threat
+tokens on it, inflict +1 Wound damage.</span>
+<p></p>
+<input type="checkbox" name="attr_spearpierce"> <span><b>Pierce.</b> <i>Like a pig on a spit.</i> When you expend Focus to roll with advantage on
+an attack, inflict +1 Wound damage if you hit.</span>
+<h3>TIER TWO</h3>
+<p></p>
+<input type="checkbox" name="attr_speardecoy"> <span><b>Decoy.</b> <i>A sacrifice worth making.</i> When an ally makes a ranged attack through
+your area, they inflict +2 Resolve damage.</span>
+<p></p>
+<input type="checkbox" name="attr_spearflanking"> <span><b>Flanking.</b> <i>It can’t stop us.</i> When there is a Hunter in an area directly opposite
+your own (i.e. Front and Rear, Left Flank and Right Flank), you or one Hunter
+in the opposing area may Focus as an immediate action at the start of your turn.</span>
+<p></p>
+<input type="checkbox" name="attr_fendoff"> <span><b>Fend Off.</b> <i>Stay back!</i> Mark 1 Resolve to cancel an interrupt action in your area,
+or mark 2 Resolve to cancel a Reposition in your area. Threat tokens are not consumed.</span>
+    </div>
+    <div class="sheet-thestaff">
+        <h2>THE STAFF</h2>
+        <h3>COMPLEXITY: 3</h3>
+        <span><i>The world is riddled with power that roils and pushes at the seams of the
+real, and: it is yours for the taking. You were born for this. The world is your
+birthright. You draw chaos up from the roots and it is shaped by your hand,
+your mind and your will. The world is stumbling, primitive, blind – you are
+sharp. You are aware. You are in control. No-one is ready for what you can do.</i></span>
+<p></p>
+<label>USE THIS TO:</label>
+Support your
+allies
+<p></p>
+Create, destroy
+and manipulate
+terrain tags
+<p></p>
+Engage in
+battlefield
+control
+<p></p>
+<h3>STAT CHANGES: HARD +1, WISE +1, STRONG +1
+<p></p>
+ATTACK WITH STRONG AT CLOSE.
+<p></p>
+ATTACK WITH WISE VS WYRD AT RANGE.</h3>
+<p></p>
+<h2>FORMS</h2>
+<p></p>
+<i>Pick one at character creation</i>
+<p></p>
+<input type="checkbox" name="attr_staffheavy"> <span><b>Heavy:</b> 2/2. All ranged staff abilities may be made in Close areas using Strong
+vs Wyrd. <i>(Also: rod, shillelagh, cane)</i></span>
+<p></p>
+<input type="checkbox" name="attr_staffornate"> <span><b>Ornate:</b> 2/2. When you or an ally in your area gains a terrain tag, you or they
+restore 1 Resolve. <i>(Also: wand, runes, orb)</i></span>
+<p></p>
+<input type="checkbox" name="attr_stafftwisted"> <span><b>Twisted:</b> 2/2. If you Move while you have one or more Terrain tags, you may
+retain one Terrain tag. <i>(Also: talisman, fetish, puzzlebox)</i></span>
+<p></p>
+<h2>ABILITIES</h2> 
+<p></p>
+<i>Pick one from Tier One at character creation</i>
+<p></p>
+<h3>TIER ONE</h3>
+<p></p>
+<input type="checkbox" name="attr_staffstrangler"> <span><b>Strangle.</b> <i>Twisted roots and grasping claws burst up from the cursed earth, hungry
+for nourishment.</i> Attack from Ranged. If you inflict Wound damage, remove a Threat token from the grid.</span>
+<p></p>
+<input type="checkbox" name="attr_staffsyphon"> <span><b>Syphon.</b> <i>Pluck lifeblood from the wretched and bestial.</i> Once per round, when
+you inflict Wound damage, restore 1 Wound.</span>
+<p></p>
+<input type="checkbox" name="attr_staffblight"> <span><b>Blight.</b><i> Wrench the power from the wretched ground. </i>Destroy a terrain tag on you or
+an ally in your area and mark 1 Resolve to make an attack from Ranged. If it hits, it deals 3/3 damage.</span>
+<h3>TIER TWO</h3>
+<p></p>
+<input type="checkbox" name="attr_stafftransfigurelandscape"> <span><b>Transfigured Landscape.</b><i> The world blossoms and shifts in response to your
+whim.</i> When you Take Cover, you use Wise to do so, and you can apply the terrain tag to any character in your or an adjacent area. If there are no unassigned
+terrain tag available, create an Obscured terrain tag when you use this ability.</span>
+<p></p>
+<input type="checkbox" name="attr_staffbloodthirstbriar"> <span><b>Bloodthirsty Briar.</b> <i>Your body thrums with the power you control.</i> Inflict +2 Re-
+solve damage when you have two or more terrain tags.</span>
+<p></p>
+<input type="checkbox" name="attr_staffbountyland"> <span><b>Bounty of the Land.</b> <i>Rip the world to shreds and feast on the meat.</i> When you
+Focus, you may destroy a terrain tag on an ally in your or an adjacent area. The ally restores 1 Resolve and 1 Wound.</span>
+    </div>
+    <div class="sheet-thesword">
+        <h2>THE SWORD</h2>
+        <h3>COMPLEXITY: 1</h3>
+        <span><i>There are fighters and there are warriors and you, friend, are a warrior. You
+are a professional. You have earned the right to lead an army, to seize the
+reins of civilisation, to cut and stab and kill. In your hand is the Sword, the
+tool of a master, and the key to victory. Show them what you can do.</i></span>
+<p></p>
+<label>USE THIS TO:</label>
+Support and lead
+other Hunters
+<p></p>
+Inflict reliable
+damage
+<p></p>
+Be adaptable
+and dynamic
+<p></p>
+<h3>STAT CHANGES: STRONG +1, QUICK +1, MAXIMUM RESOLVE +1
+<p></p>
+ATTACK WITH QUICK OR STRONG AT CLOSE (PICK ONE AT CHARACTER CREATION)</h3>
+<p></p>
+<b>QUICK</b> <input type="checkbox" name="attr_swordquick">
+<p></p>
+<b>STRONG</b> <input type="checkbox" name="attr_swordstrong">
+<p></p>
+<h2>FORMS</h2>
+<p></p>
+<i>Pick one at character creation</i>
+<p></p>
+<input type="checkbox" name="attr_swordnoble"> <span><b>Noble:</b> 2/2. +1 Wise <i>(Also: Rapier, Ceremonial Sword)</i></span>
+<p></p>
+<input type="checkbox" name="attr_swordheavy"> <span><b>Heavy:</b> 2/2. +1 Hard (Also: Cavalry Sabre, Claymore)</span>
+<p></p>
+<input type="checkbox" name="attr_swordshort"> <span><b>Short:</b> 2/2. +1 Sharp (Also: Gladius, Machete)</span>
+<p></p>
+<h2>ABILITIES</h2> 
+<p></p>
+<i>Pick one from Tier One at character creation</i>
+<p></p>
+<h3>TIER ONE</h3>
+<p></p>
+<input type="checkbox" name="attr_swordcharge"> <span><b>Charge.</b> <i>Lead from the front. </i>If you Move to a Close area, Entity suffers
+1 Resolve damage.</span>
+<p></p>
+<input type="checkbox" name="attr_swordarmsreach"> <span><b>Arm’s Reach.</b> <i>You’ve got it right where you want it</i>. If you hit with an attack, you
+may choose to remove 1 Threat token from your area.</span>
+<p></p>
+<input type="checkbox" name="attr_swordrally"> <span><b>Rally.</b> <i>Guide them to victory.</i> When you Guard, an ally in your area may Focus
+as an immediate action.</span>
+<p></p>
+<h3>TIER TWO</h3>
+<p></p>
+<input type="checkbox" name="attr_swordlonewolf"> <span><b>Lone Wolf.</b> <i>You don’t need anyone’s help.</i> When you are the only character in
+your area, inflict +1 Wound damage.</span>
+<p></p>
+<input type="checkbox" name="attr_swordbacktoback"> <span><b>Back-to-Back</b>. <i>Gather them around you.</i> When you are in an area with one or
+more other Hunters, inflict +1 Resolve damage.</span>
+<p></p>
+<input type="checkbox" name="attr_swordhamstring"> <span><b>Hamstring.</b> <i>One cut is all it takes.</i> When you are at Rear or Flank and you inflict
+Wound damage, clear all Threat tokens from an area of your choice.</span>
+<p></p>
+    </div>
+</div>
+</div>
+</div>
+</div>
+ <!-- SECONDARY WEAPON PAGE. To let you have two weapon sheets that work independently of each other, I've just copied over the code and changed all the attributes.
+ There might be a better way to do this but I'm not super experienced, so whatever works i guess.
+    
+    
+    -->
+<div class="sheet-weapon2">
+    <h2>Secondary Weapon</h2>
+    <div>
+  <label>Archetype:<label>
+  <select name="attr_weapontype2">
+    <option value="thearmour2" selected>The Armour</option>
+    <option value="thebludgeon2">The Bludgeon</option>
+    <option value="thebook2">The Book</option>
+    <option value="thegreataxe2">The Greataxe</option>
+    <option value="theknife2">The Knife</option>
+    <option value="thepistol2">The Pistol</option>
+    <option value="therifle2">The Rifle</option>
+    <option value="theshotgun2">The Shotgun</option>
+    <option value="thespear2">The Spear</option>
+    <option value="thestaff2">The Staff</option>
+    <option value="thesword2">The Sword</option>
+  </select>
+</div>
+
+<div class="character">
+<input type="hidden" class="sheet-weapontoggle" name="attr_weapontype2"  value="thearmour2"  /> 
+
+    <div class="sheet-thearmour2">
+        <h2>THE ARMOUR</h2>
+        <h3>COMPLEXITY: 3</h3>
+        <span><i>Your stance is inviolate, your approach implacable. You are prepared for
+every eventuality. You watch others fall beside you – they’re weak. Deluded.
+Poor. They didn’t have what it takes. You have what it takes, and what it
+takes is the Armour – a wall built around what little fragility remains.</i></span>
+<p></p>
+<label>USE THIS TO:</label> Protect your allies better than anyone else
+<p></p>
+Play with different abilities in the Protected and Exposed states
+<p></p>
+Limit Entity options, forcing them to attack you instead
+<p></p>
+<h3>STAT INCREASES: HARD +1, STRONG +1</h3>
+<p></p>
+<i>Start each hunt Protected. Swap to Exposed when you mark a Wound or voluntarily
+mark 2 Resolve on your turn. Swap to Protected when you Guard or enter Support.</i>
+<p></p>
+<h2>FORMS</h2> 
+<p></p>
+<i>Pick one at character creation</i>
+<p></p>
+<input type="checkbox" name="attr_armormetal2"> <span><b>Metal:</b> +1 maximum Wounds. Once per Hunt, ignore all damage from an Entity’s
+attack. <i>(Also: heavy plate, chainmail)</i></span>
+<p></p>
+<input type="checkbox" name="attr_armorleather2"> <span><b>Leather:</b> When you suffer Resolve damage from an Entity attack, you suffer 1
+less damage. <i>(Also: cloak and cowl, camouflage, heavy coat)</i></span>
+<p></p>
+<input type="checkbox" name="attr_armorsilk2"> <span><b>Silk:</b>  +1 Quick, +1 Sharp. Become Protected when you gain a terrain tag. Become Ex-
+posed when you discard/destroy one. <i>(Also: three-piece suit, expensive hat, lit cigarette)</i></span>
+<p></p>
+<h2>ABILITIES</h2> 
+<p></p>
+<i>Pick one from Tier One at character creation</i>
+<p></p>
+<h3>TIER ONE</h3>
+<p></p>
+<input type="checkbox" name="attr_armorbulwark2"> <span><b>Bulwark.</b> <i>Everyone cowers while you alone weather the storm.</i> While Protected,
+allies in your area (aside from you) have the terrain tag Cover with the following ability: Guard manoeuvres restore +1 Resolve.
+<p></p>
+If an ally destroys this Cover tag, you become Exposed.</span>
+<p></p>
+<input type="checkbox" name="attr_armorcontrol2"> <span><b>Control.</b> <i>Unburdened by fear, the chaos of combat unravels into reason.</i> While Protected,
+at the start of your turn, you may Shift 1 Threat token. 
+<p></p>
+If you end your turn in an area with no Threat, become Exposed and add 1 Threat token to the area.</span>
+<p></p>
+<input type="checkbox" name="attr_armorcounterattack2"> <span><b>Counterattack.</b> <i>Take the hit, and give back tenfold.</i> While Exposed, if an enemy
+inflicts Resolve damage on you, you may make an immediate attack against them.
+<p></p>
+If you inflict Wound damage with that attack, you become Protected.</span>
+<p></p>
+<input type="checkbox" name="attr_armormartyr2"> <span><b>Martyr.</b> <i>Your body is a litany of scars; a testament to your selflessness.</i> While
+Exposed, when an ally in your area would suffer Wound damage from any
+source, you may mark Wounds instead and shift to Protected.</span>
+<h3>TIER TWO</h3>
+<p></p>
+<input type="checkbox" name="attr_armorblock2"> <span><b>Block.</b> <i>You decide who goes where.</i> While Protected and at Close, mark 1 Resolve to
+cancel a Shift or Reposition from or into your or an adjacent area. 
+<p></p>
+While Exposed, when the Entity Repositions an ally in your or an adjacent area, you may Reposition
+yourself instead, leaving the ally where they were.</span>
+<p></p>
+<input type="checkbox" name="attr_armorintheway2"> <span><b>In The Way.</b> <i>A thousand arrows will pierce your flesh before your brother sheds blood.</i>
+When you are in a Close area and the Entity makes an attack which targets a Ranged
+area that you are adjacent to: if you are Protected, that attack deals -1/-1 damage;
+if you are Exposed, you may choose to have that attack target your area instead.</span>
+<p></p>
+<input type="checkbox" name="attr_armorgrityourteeth2"> <span><b>Grit Your Teeth.</b> <i>Your reserves of vigour are unmatched.</i> While Exposed, when you
+Guard, instead of restoring 2 Resolve, you may mark 4 Resolve to restore 4 wounds.</span>
+    </div>
+    <div class="sheet-thebludgeon2">
+        <h2>THE BLUDGEON</h2>
+        <h3>COMPLEXITY: 2</h3>
+        <span><i>You are strong. You are the strongest. The Alpha. A perfect machine. An
+irresistible force. The world breaks around you. Don’t hesitate. Don’t think.
+Destroy those who would try to slow you down.</i></span> 
+<p></p>
+<label>USE THIS TO:</label> Inflict lots of
+Resolve damage and Break Entities
+<p></p>
+See if you can kill the enemy before it kills you
+<p></p>
+Sacrifice standard
+tactical choices to
+do more damage
+<p></p>
+<h3>STAT INCREASES: STRONG +1, HARD +1, QUICK +1
+<p></p>
+ATTACK WITH STRONG AT CLOSE</h3>
+<h2>FORMS</h2>
+<p></p>
+<i>Pick one at character creation</i>
+<p></p>
+<input type="checkbox" name="attr_bludgagile2"><span> <b>Agile:</b> 2/1. +1 maximum Resolve, +1 maximum Wounds. <i>(Also: Hammer, Cosh,
+Gauntlet)</i></span>
+<p></p>
+<input type="checkbox" name="attr_bludgbrutal2"><span> <b>Brutal:</b> 3/1. +1 Resolve damage at Front. <i>(Also: Mace, Morningstar)</i></span>
+<p></p>
+<input type="checkbox" name="attr_bludgmassive2"><span> <b>Massive:</b> 3/2. <i>(Also: Maul, Tree Trunk, Big Rock)</i></span>
+<p></p>
+<h2>ABILITIES</h2> 
+<p></p>
+<i>Pick one from Tier One at character creation</i>
+<p></p>
+<h3>TIER ONE</h3>
+<p></p>
+<input type="checkbox" name="attr_bludgfearless2"><span> <b>Fearless.</b> <i>You never hide; you’re always where you mean to be.</i> Gain +2 maximum
+Resolve. You no longer gain the positive benefits of terrain (you gain no reduction in Wound damage from Shielded terrain, for example), but you can
+still Take Cover.</span>
+<p></p>
+<input type="checkbox" name="attr_bludggleeful2"><span> <b>Gleeful.</b> <i>See the fear in its eyes.</i> When you Break an Entity, restore 2 Wounds or
+3 Resolve.</span>
+<p></p>
+<input type="checkbox" name="attr_bludgheartless2"><span> <b>Heartless.</b><i>This thing’s own mother wouldn’t recognise it when you’re done.</i> Before
+you roll to attack, you may mark 1 Resolve; if you do so, your attack inflicts
++1/+0 if it hits.</span>
+<h3>TIER TWO</h3>
+<p></p>
+<input type="checkbox" name="attr_bludgcruel2"><span> <b>Cruel.</b><i>You’re not trying to kill it. You’re trying to ruin it.</i> When you would inflict
+Wound damage, you may instead choose to inflict Resolve damage; if you do so,
+inflict +2 Resolve damage.</span>
+<p></p>
+<input type="checkbox" name="attr_bludgvicious2"><span> <b>Vicious.</b> <i>Break its guard and make it beg.</i> You can no longer perform the Guard
+manoeuvre. When you inflict Resolve damage, restore Resolve equal to half the
+amount you inflicted (rounding up).</span>
+<p></p>
+<input type="checkbox" name="attr_bludgtireless2"><span> <b>Tireless.</b><i> I don’t care if it hurts. Win.</i> At the end of your turn, mark 2 Resolve
+and place 1 Threat token on your area to make an additional attack action.</span>
+    </div>
+    <div class="sheet-thebook2">
+        <h2>THE BOOK</h2>
+        <h3>COMPLEXITY: 2</h3>
+        <span><i>Words have power. If you name something, you can know it, and if you know
+it, you can control it. Speak a word aloud and the ground trembles at your
+approach; the beasts of the land recoil and cower; eyes are struck blind,
+muscles wither and crops die. A chain around the neck of the world, binding
+it to your will. Nothing is beyond your comprehension and nothing is
+outside of your reach.</i></span> 
+<p></p>
+<label>USE THIS TO:</label> Heal other
+Hunters
+<p></p>
+Control the battlefield
+<p></p>
+Attack Wyrd defence instead of Close or Ranged
+<p></p>
+<h3>STAT CHANGES: WISE +1, SHARP +1
+<p></p>
+ATTACK WITH WISE VS WYRD AT CLOSE AND RANGED</h3>
+<p></p>
+<h2>FORMS</h2>
+<p></p>
+<i>Pick one at character creation</i>
+<p></p>
+<input type="checkbox" name="attr_booksacred2"><span> <b>Sacred:</b> 2/2. When you Guard, an ally in your area heals 1 Resolve. <i>(Also: Illus-
+trated family Bible, Lost apocrypha, Hallowed parchments.)</i></span>
+<p></p>
+<input type="checkbox" name="attr_bookprofane2"><span> <b>Profane:</b>1/3. +1 Quick. <i>(Also: Codex Malignatus, banned texts, impish familiar.)</i></span>
+<p></p>
+<input type="checkbox" name="attr_bookeldritch2"><span> <b>Eldritch:</b> 3/1. When you Focus at Close, Entity suffers 1 Resolve damage.
+<i>(Also: Litanies of the Outer Dark, bag of astral runes, strange device.)</i></span>
+<p></p>
+<h2>ABILITIES</h2> 
+<p></p>
+<i>Pick one from Tier One at character creation</i>
+<p></p>
+<h3>TIER ONE</h3>
+<p></p>
+<input type="checkbox" name="attr_bookremake2"><span> <b>Remake.</b> <i>Speak their bones back into their ordained form.</i> Attack action. Mark 1
+Wound to restore 2 Wounds on an ally in your area. If performed in Support, do not mark any Wounds.</span>
+<p></p>
+<input type="checkbox" name="attr_bookbrand2"><span> <b>Brand.</b> <i>Carve your dominion into its flesh.</i> Attack and mark 1 Resolve. If this at-
+tack hits, an ally in your or an adjacent area can Focus as an immediate action.</span>
+<p></p>
+<input type="checkbox" name="attr_bookleash2"><span> <b>Leash.</b> <i>Down, wretch.</i> When you are at Close and the Entity Repositions an ally
+or uses an Interrupt ability, it suffers 1 Resolve damage.</span>
+<h3>TIER TWO</h3>
+<p></p>
+<input type="checkbox" name="attr_bookrebuke2"><span> <b>Rebuke.</b> <i>Chastise it for daring to stand against you.</i> Close attack action. If you
+inflict Resolve damage, remove 1 Threat token from your or an adjacent area. If
+you inflict Wound damage, remove 3 Threat from your or an adjacent area.
+<p></p>
+If you miss, place 2 Threat on your area (rather than 1).</span>
+<p></p>
+<input type="checkbox" name="attr_booksacrifice2"><span> <b>Sacrifice.</b>. <i>Blood for blood; the oldest accord.</i> Once per turn, when you inflict
+Wound damage, restore 1 Wound on yourself or an ally in your area.</span>
+<p></p>
+<input type="checkbox" name="attr_bookmiracle2"><span> <b>Miracle.</b> <i> The world is at your disposal.</i> Mark 1 Wound and 1 Resolve to activate
+this ability. As an attack action, make a Use manoeuvre as though you were activating any one of the following pieces of Hunt equipment:
+Weighted Net, Smoke Bomb, Flare, Lure, Lucky Bullet, Bomb.</span>    
+</div>
+    <div class="sheet-thegreataxe2">
+        <h2>THE GREATAXE</h2>
+        <h3>COMPLEXITY: 2</h3>
+        <span><i>You are the edge that tears the world asunder. You are born of the breed
+that ripped the rocks from the dark of the earth to make steel. Butcher.
+Dissect. Transform beast into meat; an alchemy in your undoing.</i></span> 
+<p></p>
+<label>USE THIS TO:</label>
+Inflict massive damage
+<p></p>
+Fight on the front lines
+<p></p>
+Not worry about being quick or clever
+<p></p>
+<h3>STAT CHANGES: STRONG +2 HARD +1 WISE -1 QUICK -1
+<p></p>
+ATTACK WITH STRONG AT CLOSE</h3>
+<h2>FORMS</h2>
+<p></p>
+<i>Pick one at character creation</i>
+<p></p>
+<input type="checkbox" name="attr_greataxekeen2"><span> <b>Keen:</b> 2/4. Capacity 3 <i>(Also: Greatsword, Cleaver, Mining Pick.)</i></span>
+<p></p>
+<input type="checkbox" name="attr_greataxeheavy2"><span> <b>Heavy:</b> 3/3. Capacity 3 <i>(Also: Sledgehammer, Ship’s anchor, Enormous saw
+blade tied to a stick.)</i></span>
+<p></p>
+<input type="checkbox" name="attr_greataxeversatile2"><span> <b>Versatile:</b> 2/3. Capacity 5 <i> (Also: Glaive, Battleaxe.)</i></span>
+<p></p>
+<h3>CAPACITY:</h3> <input type="checkbox" name="attr_axe1a">
+<input type="checkbox" name="attr_axe2a">
+<input type="checkbox" name="attr_axe3a">
+<input type="checkbox" name="attr_axe4a">
+<input type="checkbox" name="attr_axe5a">
+<p></p>
+<h2>ABILITIES</h2> 
+<p></p>
+<i>Pick one from Tier One at character creation</i>
+<p></p>
+<h3>TIER ONE</h3>
+<p></p>
+<input type="checkbox" name="attr_greataxebreakbones2"> <span><b>Break Bones.</b> <i>Butcher it to the marrow.</i> Close attack action. Expend 2 Capacity
+to make this attack. Inflict 2 additional Resolve damage on a hit, regardless of whether you inflict Wound damage.</span>
+<p></p>
+<input type="checkbox" name="attr_greataxenononsense2"> <span><b>No Nonsense.</b> <i>Get in there.</i> When you are in Front and you suffer Wound damage from an Entity attack, suffer 1 less damage.</span>
+<p></p>
+<input type="checkbox" name="attr_greataxeroar2"> <span><b>Roar.</b> <i>Howl your defiance.</i> When you Focus, you may Shift 1 Threat token towards you. When you inflict Wound damage to an Entity, you may remove 1 Threat token from your area.</span>
+<h3>TIER TWO</h3>
+<p></p>
+<input type="checkbox" name="attr_greataxecleave2"> <span><b>Cleave.</b> <i>Split bone and tendon asunder.</i> Expend 2 Capacity to make this attack.
+If this attack Wounds an Entity, choose one of its attacks and reduce its damage
+by -1/-1. If the Entity Breaks a Hunter, return the damage to its original value.</span>
+<p></p>
+<input type="checkbox" name="attr_greataxecarnage2"> <span><b>Carnage.</b> <i>Nothing better than a good fight.</i> When a Threat token is consumed in
+your area, restore Capacity equal to the number of Threat tokens removed as an
+immediate action.</span>
+<p></p>
+<input type="checkbox" name="attr_greataxeseered2"> <span><b>Seeing Red.</b> <i>Time to die.</i> When you are Broken, you inflict +1/+1 damage and
+take 0/+1 damage.</span>
+    </div>
+    <div class="sheet-theknife2">
+        <h2>THE KNIFE</h2>
+        <h3>COMPLEXITY: 1</h3>
+        <span><i>The world is trying to hurt you but you won’t let it - you won’t be taken
+advantage of - you’re sharp and cruel and quick and clever - and the Knife
+is here right alongside you, pressed into your palm, guiding you through
+the darkness and chaos. You’re going to show them they were stupid to
+underestimate you.</i></span> 
+<p></p>
+<label>USE THIS TO:</label>
+Rely on your
+speed rather
+than your brawn
+<p></p>
+Keep moving
+to stay out of
+trouble
+<p></p>
+Attack weak
+spots and
+vulnerable areas
+<p></p>
+<h3>STAT CHANGES: QUICK +1, SHARP +1, WISE +1
+<p></p>
+ATTACK WITH QUICK AT CLOSE</h3>
+<h2>FORMS</h2>
+<p></p>
+<i>Pick one at character creation</i>
+<p></p>
+<input type="checkbox" name="attr_knifeweighted2"><span> <b>Weighted:</b> 2/2. In addition to the Knife’s Close attack, you may now attack at
+Ranged with Sharp <i>(Also: Throwing stars, Darts)</i></span>
+<p></p>
+<input type="checkbox" name="attr_knifekeen2"><span> <b>Keen:</b> 2/3. <i>(Also: Stiletto, Punch Dagger)</i></span>
+<p></p>
+<input type="checkbox" name="attr_knifeversatile2"><span> <b>Versatile:</b> 3/2. <i>(Also: Trench Knife, Knuckledusters)</i></span>
+<p></p>
+<h2>ABILITIES</h2> 
+<p></p>
+<i>Pick one from Tier One at character creation</i>
+<p></p>
+<h3>TIER ONE</h3>
+<p></p>
+<input type="checkbox" name="attr_knifebackstab2"><span> <b>Backstab.</b> <i>They left themselves open; it’s more their fault than yours.</i> Inflict +1/+1
+damage when in Rear.</span>
+<p></p>
+<input type="checkbox" name="attr_knifedodge2"> <span><b>Dodge.</b> <i>They’re going to wish they killed you sooner. </i>Mark 1 Resolve to defend
+with Quick instead of any other stat. If you roll under your Quick on the defend
+roll, you may Move to any adjacent area as a free action.</span> 
+<p></p>
+<input type="checkbox" name="attr_knifewhisperquick2"> <span><b>Whisper-Quick.</b> <i>Kill them before they can hurt you.</i> Mark 1 Resolve to attack
+with Quick instead of any other stat. If this attack inflicts Wound damage,
+regain 1 Resolve.</span>
+<h3>TIER TWO</h3>
+<p></p>
+<input type="checkbox" name="attr_knifevanish2"> <span><b>Vanish.</b> <i>It’s like you were never there.</i> When you are at Ranged or Support, you
+may mark 2 Resolve to Move into the shadows as an immediate action. While
+you’re in the shadows, remove your token from the grid; you cannot attack,
+make manoeuvres, be attacked, or otherwise interact with the Hunt.
+<p></p>
+At the start of your next turn, place your token anywhere on the grid.</span>
+<p></p>
+<input type="checkbox" name="attr_knifeghostly2"> <span><b>Ghostly.</b> <i>Slip away before it gets your scent.</i> When you miss with an attack, you
+may Move as an immediate action.</span>
+<p></p>
+<input type="checkbox" name="attr_knifelightningfast2"> <span><b>Lightning-Fast.</b> <i>Keep moving. It’s too slow to hit you.</i> When you Move, you automatically Guard as an immediate action.</span>
+    </div>
+    <div class="sheet-thepistol2">
+        <h2>THE PISTOL</h2>
+        <h3>COMPLEXITY: 2</h3>
+        <span><i>You’re strong. Smart. Capable. The world’s set against you but with the Pistol
+resting on your hip or howling in your hand you can weather any storm.
+You’re a force to be reckoned with, and those fools will be left in your wake
+when you show them what you can do.</i></span> 
+<p></p>
+<label>USE THIS TO:</label>
+Attack from
+range or
+up close,
+whatever’s best
+<p></p>
+Power up when
+you inflict
+Wounds
+<p></p>
+Adapt to
+changing
+situations
+<p></p>
+<h3>STAT CHANGES: SHARP +1, QUICK +1, WISE +1
+<p></p>
+ATTACK WITH SHARP AT RANGED.
+<p></p>
+ATTACK WITH QUICK AT CLOSE.</h3>
+<h2>FORMS</h2>
+<p></p>
+<i>Pick one at character creation</i>
+<p></p>
+<input type="checkbox" name="attr_pistolauto2"> <span><b>Automatic:</b> 1/1. Capacity 5; when you Reload, restore Capacity to full <i>(Also:
+Pepperbox)</i></span>
+<p></p>
+<input type="checkbox" name="attr_pistolrevolver2"> <span><b>Revolver:</b> 2/1. Capacity 3. <i>(Also: Shortbow, Javelin, Throwing Axe)</i></span>
+<p></p>
+<input type="checkbox" name="attr_pistolhandcannon2"> <span><b>Hand Cannon:</b> 3/3. Capacity 1. <i>(Also: Crossbow)</i></span>
+<p></p>
+<h3>CAPACITY:</h3> <input type="checkbox" name="attr_pistol1a">
+<input type="checkbox" name="attr_pistol2a">
+<input type="checkbox" name="attr_pistol3a">
+<input type="checkbox" name="attr_pistol4a">
+<input type="checkbox" name="attr_pistol5a">
+<p></p>
+<h2>ABILITIES</h2> 
+<p></p>
+<i>Pick one from Tier One at character creation</i>
+<p></p>
+<h3>TIER ONE</h3>
+<p></p>
+<input type="checkbox" name="attr_pistolcoverfire2"> <span><b>Covering Fire.</b> <i>Put it on the back foot</i>. When you would inflict Wound damage
+with an attack and instead opt to inflict Resolve damage, one ally at Close may
+make an immediate manoeuvre.</span>
+<p></p>
+<input type="checkbox" name="attr_pistolmomentum2"> <span><b>Momentum.</b> <i>Feels good, doesn’t it?</i> When you inflict Wound damage, restore
+2 Resolve.</span>
+<p></p>
+<input type="checkbox" name="attr_pistolunload2"> <span><b>Unload.</b> <i>Keep shooting until it can’t get up.</i> Expend both your attack and
+manoeuvre actions to make a number of Pistol attacks equal to your
+current Capacity.</span>
+<h3>TIER TWO</h3>
+<p></p>
+<input type="checkbox" name="attr_pistollastditch2"> <span><b>Last-Ditch.</b> <i>Too slow.</i> When you are at Close and the Entity targets you with an
+attack, mark 1 Resolve and expend 1 Capacity from the Pistol then roll Quick.
+<p></p>
+On a success, the attack is cancelled and you or an ally in your area can make an
+immediate attack against the Entity. On a failure, you suffer 2 Wound damage
+in addition to any other damage taken.</span>
+<p></p>
+<input type="checkbox" name="attr_pistolhotfoot2"> <span><b>Hotfoot.</b> <i>You make this look easy.</i> When you inflict Wound damage, you may
+make an immediate, free manoeuvre.</span>
+<p></p>
+<input type="checkbox" name="attr_pistolcomeoutshooting2"> <span><b>Come Out Shooting.</b> <i>Caught your breath? Okay, now get out there.</i> +1 Capacity.
+Discard a terrain tag to Reload the Pistol to full Capacity and make an
+additional manoeuvre.</span>
+
+    </div>
+    <div class="sheet-therifle2">
+        <h2>THE RIFLE</h2>
+        <h3>COMPLEXITY: 1</h3>
+        <span><i>The world is dangerous but you are more dangerous; you are the apex
+predator. You are calm; you are methodical; you are operating far above
+your base instincts. There is no wilderness or threat that you cannot tame
+or kill. The land is rotten and corrupted but you, paragon of patience,
+stand pristine above it all.</i></span> 
+<p></p>
+<label>USE THIS TO:</label>
+Attack at range
+<p></p>
+Hold your ground
+<p></p>
+Inflict Wound
+damage to
+finish the Hunt
+<p></p>
+<h3>STAT CHANGES: SHARP +1, WISE +1
+<p></p>
+ATTACK WITH SHARP AT RANGED OR CLOSE.
+<p></p>
+<i>Roll with Disadvantage when you attack from Close with the Rifle</i></h3>
+<p></p>
+<h2>FORMS</h2>
+<p></p>
+<i>Pick one at character creation</i>
+<p></p>
+<input type="checkbox" name="attr_riflerepeat2"> <span><b>Repeating:</b> 3/2. Capacity 3 <i>(Also: Carbine, Lever-Action)</i></span>
+<p></p>
+<input type="checkbox" name="attr_riflehighcalibre2"> <span><b>High Calibre:</b> 2/4. -1 Sharp, Capacity 1 <i>(Also: Elephant Gun, Small Cannon)</i></span>
+<p></p>
+<input type="checkbox" name="attr_rifleaccurate2"> <span><b>Accurate:</b> 2/3. +1 Sharp, Capacity 1 <i>(Also: Hunting rifle, Target Rifle)</i></span>
+<p></p>
+<h3>CAPACITY:</h3> <input type="checkbox" name="attr_rifle1a">
+<input type="checkbox" name="attr_rifle2a">
+<input type="checkbox" name="attr_rifle3a">
+<p></p>
+<h2>ABILITIES</h2> 
+<p></p>
+<i>Pick one from Tier One at character creation</i>
+<p></p>
+<h3>TIER ONE</h3>
+<p></p>
+<input type="checkbox" name="attr_rifletakeyourtime2"> <span><b>Take Your Time.</b> <i>Don’t rush around like some kind of animal.</i> When you expend
+Focus, you may add +1 Wound damage to your attack and place a Threat token on your area instead of rolling with advantage; this takes place before the attack
+is rolled.</span>
+<p></p>
+<input type="checkbox" name="attr_rifleobscuredposition2"> <span><b>Obscured Position.</b> <i>They won’t know what hit them.</i> When you have a terrain
+tag, inflict +1 Wound damage.</span>
+<p></p>
+<input type="checkbox" name="attr_riflepristine2"> <span><b>Pristine.</b> <i>Don’t let them touch you.</i> While you still have your maximum number
+of Wounds, +1 to all stats.</span>
+<h3>TIER TWO</h3>
+<p></p>
+<input type="checkbox" name="attr_rifleeyeofstorm2"> <span><b>Eye of the Storm.</b> <i>Watch the beast scurry and fret.</i> Mark 1 Resolve to make an
+attack from Range. If you attack through an area that contains Threat tokens,
+increase your Sharp for this attack by the number of Threat tokens in that area.</span>
+<p></p>
+<input type="checkbox" name="attr_rifleevasion2"> <span><b>Evasion.</b> <i>No sense in dying if you don’t have to.</i> When you have a terrain tag, destroy
+it to move to Support at any time. You can do this as an immediate action in response
+to an attack; you take no damage from the attack if so.</span>
+<p></p>
+<input type="checkbox" name="attr_riflepindown2"> <span><b>Pin Down.</b> <i>Not on your watch.</i> When you are at Ranged Left or Right and the
+Entity uses a manoeuvre, mark 2 Resolve and make an immediate attack
+against it. If you hit, you cause no damage, but the manoeuvre is cancelled
+without effect.</span>
+    </div>
+    <div class="sheet-theshotgun2">
+        <h2>THE SHOTGUN</h2>
+        <h3>COMPLEXITY: 3</h3>
+        <span><i>There are things out there that want to kill you – terrible things,
+wretched things, bestial things. You’re not scared of them. They should be
+scared of you. You’re mess and you’re chaos, you’re indiscriminate, you’re
+a massacre waiting to happen. There’s nothing you can’t kill, nothing you
+can’t break, nothing you can’t ruin.</i></span> 
+<p></p>
+<label>USE THIS TO:</label>
+Mix it up in the
+front line
+<p></p>
+Soak up damage
+with few ill-
+effects
+<p></p>
+Play with
+different
+abilities in
+EMPTY and
+LOADED states
+<p></p>
+<h3>STAT CHANGES:  +2 HARD, +1 SHARP
+<p></p>
+ATTACK WITH SHARP AT RANGED OR CLOSE. ROLL WITH DISADVANTAGE WHEN ATTACKING FROM RANGE.</h3>
+<p></p>
+<i>The shotgun is either Empty or Loaded. When it’s Loaded, you can flip it to Empty to
+make an attack; when it’s Empty, you can make a Reload action to flip it to Loaded.
+You may only use the section of the ability matching the current state of your weapon.</i>
+<p></p>
+<h2>FORMS</h2>
+<p></p>
+<i>Pick one at character creation</i>
+<p></p>
+<input type="checkbox" name="attr_shotgunnoescape2"> <span><b>No Escape:</b> 2/2. You no longer roll with disadvantage on Shotgun attacks at
+range. <i>(Also: pump action shotgun, Mare’s Leg.)</i></span>
+<p></p>
+<input type="checkbox" name="attr_shotguncarnage2"> <span><b>Carnage:</b> 2/2. Attack with Strong instead of Sharp at Close. <i>(
+Also: sawn-off, Obrez rifle.)</i></span>
+<p></p>
+<input type="checkbox" name="attr_shotgunsmoke2"> <span><b>Smoke:</b> 2/2. When you switch from Loaded to Empty, Guard as an immediate
+action. <i>(Also: blunderbuss, bandolier of flintlocks.)</i></span>
+<p></p>
+<h2>ABILITIES</h2> 
+<p></p>
+<i>Pick one from Tier One at character creation</i>
+<p></p>
+<h3>TIER ONE</h3>
+<p></p>
+<input type="checkbox" name="attr_shotgunsustainfire2"> <span><b>Sustained Fire.</b> <i>Your blood’s up. Your hands are like lightning.</i> When you end
+your turn in an area with Threat placed on it, switch from Empty to Loaded as
+an immediate action.</span>
+<p></p>
+<input type="checkbox" name="attr_shotgungoresoaked2"> <span><b>Gore-Soaked.</b> <i>Show this thing what you’re capable of.</i> When you have suffered total
+Wound damage greater than half of your maximum Wounds, +1/+1 to all attacks.</span>
+<p></p>
+<input type="checkbox" name="attr_shotgunfumesflames2"> <span><b>Fumes and Flames.</b> <i>Send shells smoking like the flames of hell.</i> When you switch
+from Loaded to Empty, an ally in your area may Guard or Move as an immediate action.</span>
+<h3>TIER TWO</h3>
+<p></p>
+<input type="checkbox" name="attr_shotgungetright2"> <span><b>Get Right in There.</b> <i>Don’t give it an inch.</i> Loaded: Mark 2 Resolve to attack with
+advantage at Close.<p></p> Empty: Gain the manoeuvre Smash: Make a Close attack
+with Strong at 1/1 and Reload.</span>
+<p></p>
+<input type="checkbox" name="attr_shotgunstandfight2"> <span><b>Stand and Fight.</b> <i>Don’t hide like some whimpering cur.</i> Discard a terrain tag to
+re-roll an attack dice after you see the result.</span>
+<p></p>
+<input type="checkbox" name="attr_shotgunironbarrel2"> <span><b>Iron-Banded Barrel.</b> <i>Good! Now, smash its fucking head in.</i> Loaded: Make an
+attack at 0/4 and switch to Empty.<p></p> Empty: Make a Close attack at 4/0 and
+switch to Loaded.</span>
+    </div>
+    <div class="sheet-thespear2">
+        <h2>THE SPEAR</h2>
+        <h3>COMPLEXITY: 2</h3>
+        <span><i>There is a line between us and them and across that line is the Spear,
+keeping them away from us. Protecting the sacred from the profane.
+Defending right and killing wrong. The world is trying to swallow you and
+those you care about, but it’ll have to get through you first.</i></span> 
+<label>USE THIS TO:</label>
+Support other
+Hunters in
+combat
+<p></p>
+Manipulate
+Threat to control
+the fight
+<p></p>
+Wound the
+Entity to bring
+it down quickly
+<p></p>
+<h3>STAT CHANGES:  QUICK +1, STRONG +1, HARD +1
+<p></p>
+ATTACK WITH QUICK AT CLOSE</h3>
+<p></p>
+<h2>FORMS</h2>
+<p></p>
+<i>Pick one at character creation</i>
+<p></p>
+<input type="checkbox" name="attr_spearlight2"> <span><b>Light:</b> 2/2. Quick +1 <i>(Also: Sharpened Stick)</i></span>
+<p></p>
+<input type="checkbox" name="attr_spearlong2"> <span><b>Long:</b> 3/2. <i>(Also: Pike, Boar Spear)</i></span>
+<p></p>
+<input type="checkbox" name="attr_spearheavy2"> <span><b>Heavy:</b> 2/3. <i>(Also: Halberd, Glaive)</i></span>
+<p></p>
+<h2>ABILITIES</h2> 
+<p></p>
+<i>Pick one from Tier One at character creation</i>
+<p></p>
+<h3>TIER ONE</h3>
+<p></p>
+<input type="checkbox" name="attr_speargoad2"> <span><b>Goad.</b> <i>The stupid creature is two steps behind you.</i> When you Guard, you may place
+a Threat token on your area or an adjacent area, or Shift 1 Threat token in your area
+or an adjacent area.</span>
+<p></p>
+<input type="checkbox" name="attr_speartrap2"> <span><b>Trap.</b> <i>Just try and take me down.</i> When you are in an area with 3 or more Threat
+tokens on it, inflict +1 Wound damage.</span>
+<p></p>
+<input type="checkbox" name="attr_spearpierce2"> <span><b>Pierce.</b> <i>Like a pig on a spit.</i> When you expend Focus to roll with advantage on
+an attack, inflict +1 Wound damage if you hit.</span>
+<h3>TIER TWO</h3>
+<p></p>
+<input type="checkbox" name="attr_speardecoy2"> <span><b>Decoy.</b> <i>A sacrifice worth making.</i> When an ally makes a ranged attack through
+your area, they inflict +2 Resolve damage.</span>
+<p></p>
+<input type="checkbox" name="attr_spearflanking2"> <span><b>Flanking.</b> <i>It can’t stop us.</i> When there is a Hunter in an area directly opposite
+your own (i.e. Front and Rear, Left Flank and Right Flank), you or one Hunter
+in the opposing area may Focus as an immediate action at the start of your turn.</span>
+<p></p>
+<input type="checkbox" name="attr_fendoff2"> <span><b>Fend Off.</b> <i>Stay back!</i> Mark 1 Resolve to cancel an interrupt action in your area,
+or mark 2 Resolve to cancel a Reposition in your area. Threat tokens are not consumed.</span>
+    </div>
+    <div class="sheet-thestaff2">
+        <h2>THE STAFF</h2>
+        <h3>COMPLEXITY: 3</h3>
+        <span><i>The world is riddled with power that roils and pushes at the seams of the
+real, and: it is yours for the taking. You were born for this. The world is your
+birthright. You draw chaos up from the roots and it is shaped by your hand,
+your mind and your will. The world is stumbling, primitive, blind – you are
+sharp. You are aware. You are in control. No-one is ready for what you can do.</i></span>
+<p></p>
+<label>USE THIS TO:</label>
+Support your
+allies
+<p></p>
+Create, destroy
+and manipulate
+terrain tags
+<p></p>
+Engage in
+battlefield
+control
+<p></p>
+<h3>STAT CHANGES: HARD +1, WISE +1, STRONG +1
+<p></p>
+ATTACK WITH STRONG AT CLOSE.
+<p></p>
+ATTACK WITH WISE VS WYRD AT RANGE.</h3>
+<p></p>
+<h2>FORMS</h2>
+<p></p>
+<i>Pick one at character creation</i>
+<p></p>
+<input type="checkbox" name="attr_staffheavy2"> <span><b>Heavy:</b> 2/2. All ranged staff abilities may be made in Close areas using Strong
+vs Wyrd. <i>(Also: rod, shillelagh, cane)</i></span>
+<p></p>
+<input type="checkbox" name="attr_staffornate2"> <span><b>Ornate:</b> 2/2. When you or an ally in your area gains a terrain tag, you or they
+restore 1 Resolve. <i>(Also: wand, runes, orb)</i></span>
+<p></p>
+<input type="checkbox" name="attr_stafftwisted2"> <span><b>Twisted:</b> 2/2. If you Move while you have one or more Terrain tags, you may
+retain one Terrain tag. <i>(Also: talisman, fetish, puzzlebox)</i></span>
+<p></p>
+<h2>ABILITIES</h2> 
+<p></p>
+<i>Pick one from Tier One at character creation</i>
+<p></p>
+<h3>TIER ONE</h3>
+<p></p>
+<input type="checkbox" name="attr_staffstrangler2"> <span><b>Strangle.</b> <i>Twisted roots and grasping claws burst up from the cursed earth, hungry
+for nourishment.</i> Attack from Ranged. If you inflict Wound damage, remove a Threat token from the grid.</span>
+<p></p>
+<input type="checkbox" name="attr_staffsyphon2"> <span><b>Syphon.</b> <i>Pluck lifeblood from the wretched and bestial.</i> Once per round, when
+you inflict Wound damage, restore 1 Wound.</span>
+<p></p>
+<input type="checkbox" name="attr_staffblight2"> <span><b>Blight.</b><i> Wrench the power from the wretched ground. </i>Destroy a terrain tag on you or
+an ally in your area and mark 1 Resolve to make an attack from Ranged. If it hits, it deals 3/3 damage.</span>
+<h3>TIER TWO</h3>
+<p></p>
+<input type="checkbox" name="attr_stafftransfigurelandscape2"> <span><b>Transfigured Landscape.</b><i> The world blossoms and shifts in response to your
+whim.</i> When you Take Cover, you use Wise to do so, and you can apply the terrain tag to any character in your or an adjacent area. If there are no unassigned
+terrain tag available, create an Obscured terrain tag when you use this ability.</span>
+<p></p>
+<input type="checkbox" name="attr_staffbloodthirstbriar2"> <span><b>Bloodthirsty Briar.</b> <i>Your body thrums with the power you control.</i> Inflict +2 Re-
+solve damage when you have two or more terrain tags.</span>
+<p></p>
+<input type="checkbox" name="attr_staffbountyland2"> <span><b>Bounty of the Land.</b> <i>Rip the world to shreds and feast on the meat.</i> When you
+Focus, you may destroy a terrain tag on an ally in your or an adjacent area. The ally restores 1 Resolve and 1 Wound.</span>
+    </div>
+    <div class="sheet-thesword2">
+        <h2>THE SWORD</h2>
+        <h3>COMPLEXITY: 1</h3>
+        <span><i>There are fighters and there are warriors and you, friend, are a warrior. You
+are a professional. You have earned the right to lead an army, to seize the
+reins of civilisation, to cut and stab and kill. In your hand is the Sword, the
+tool of a master, and the key to victory. Show them what you can do.</i></span>
+<p></p>
+<label>USE THIS TO:</label>
+Support and lead
+other Hunters
+<p></p>
+Inflict reliable
+damage
+<p></p>
+Be adaptable
+and dynamic
+<p></p>
+<h3>STAT CHANGES: STRONG +1, QUICK +1, MAXIMUM RESOLVE +1
+<p></p>
+ATTACK WITH QUICK OR STRONG AT CLOSE (PICK ONE AT CHARACTER CREATION)</h3>
+<p></p>
+<b>QUICK</b> <input type="checkbox" name="attr_swordquick2">
+<p></p>
+<b>STRONG</b> <input type="checkbox" name="attr_swordstrong2">
+<p></p>
+<h2>FORMS</h2>
+<p></p>
+<i>Pick one at character creation</i>
+<p></p>
+<input type="checkbox" name="attr_swordnoble2"> <span><b>Noble:</b> 2/2. +1 Wise <i>(Also: Rapier, Ceremonial Sword)</i></span>
+<p></p>
+<input type="checkbox" name="attr_swordheavy2"> <span><b>Heavy:</b> 2/2. +1 Hard (Also: Cavalry Sabre, Claymore)</span>
+<p></p>
+<input type="checkbox" name="attr_swordshort2"> <span><b>Short:</b> 2/2. +1 Sharp (Also: Gladius, Machete)</span>
+<p></p>
+<h2>ABILITIES</h2> 
+<p></p>
+<i>Pick one from Tier One at character creation</i>
+<p></p>
+<h3>TIER ONE</h3>
+<p></p>
+<input type="checkbox" name="attr_swordcharge2"> <span><b>Charge.</b> <i>Lead from the front. </i>If you Move to a Close area, Entity suffers
+1 Resolve damage.</span>
+<p></p>
+<input type="checkbox" name="attr_swordarmsreach2"> <span><b>Arm’s Reach.</b> <i>You’ve got it right where you want it</i>. If you hit with an attack, you
+may choose to remove 1 Threat token from your area.</span>
+<p></p>
+<input type="checkbox" name="attr_swordrally2"> <span><b>Rally.</b> <i>Guide them to victory.</i> When you Guard, an ally in your area may Focus
+as an immediate action.</span>
+<p></p>
+<h3>TIER TWO</h3>
+<p></p>
+<input type="checkbox" name="attr_swordlonewolf2"> <span><b>Lone Wolf.</b> <i>You don’t need anyone’s help.</i> When you are the only character in
+your area, inflict +1 Wound damage.</span>
+<p></p>
+<input type="checkbox" name="attr_swordbacktoback2"> <span><b>Back-to-Back</b>. <i>Gather them around you.</i> When you are in an area with one or
+more other Hunters, inflict +1 Resolve damage.</span>
+<p></p>
+<input type="checkbox" name="attr_swordhamstring2"> <span><b>Hamstring.</b> <i>One cut is all it takes.</i> When you are at Rear or Flank and you inflict
+Wound damage, clear all Threat tokens from an area of your choice.</span>
+<p></p>
+    </div>
+</div>
+</div>
+</div>
+</div>
+<div class="sheet-notes">
+    <h2>Notes</h2>
+    <span>For miscellaneous notetaking/anything that doesn't fit on other tabs.</span>
+    <textarea name="attr_notes"></textarea>
+    <b>Character Miscellany</b>
+    <textarea name="attr_charnotes"></textarea>
+    
+</div>
+ <!-- Scriptworker for tab buttons. Modify them if you want, but make sure you change it in the CSS too or it won't work!-->
+<script type="text/worker">
+    const buttonlist = ["character", "weapon", "weapon2", "notes"];
+    buttonlist.forEach(button => {
+        on(`clicked:${button}`, function() {
+            setAttrs({
+                sheetTab: button
+            });
+        });
+    });
+</script>
