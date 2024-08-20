@@ -1,0 +1,76 @@
+
+/* This section for tab code. If you want to add more buttons make sure to change the CSS here as well! */
+/* configure the tab buttons */
+.charsheet .sheet-character,
+.charsheet .sheet-weapon,
+.charsheet .sheet-weapon2,
+.charsheet .sheet-notes {
+    display: none;
+}
+
+/* style the active button */
+.charsheet .sheet-tabstoggle[value="character"] ~ div .sheet-button0 {outline: 2px solid black;}
+.charsheet .sheet-tabstoggle[value="weapon"] ~ div .sheet-button1 {outline: 2px solid black;}
+.charsheet .sheet-tabstoggle[value="weapon2"] ~ div .sheet-button2 {outline: 2px solid black;}
+.charsheet .sheet-tabstoggle[value="notes"] ~ div .sheet-button3 {outline: 2px solid black;}
+
+/* show the selected tab */
+.charsheet .sheet-tabstoggle[value="character"] ~ div.sheet-character,
+.charsheet .sheet-tabstoggle[value="weapon"] ~ div.sheet-weapon,
+.charsheet .sheet-tabstoggle[value="weapon2"] ~ div.sheet-weapon2,
+.charsheet .sheet-tabstoggle[value="notes"] ~ div.sheet-notes {
+    display: block;
+}
+
+/*Dropdown code for weapons sheets. If you want to add more weapons (custom or whatever) you need to do it here so it will register and call the appropriate sheet. If you want it to appear on both pages, you'll have to add it twice with different names.*/
+/* By deafult, hides all archetypes*/
+.charsheet .sheet-thearmour,
+.charsheet .sheet-thebludgeon,
+.charsheet .sheet-thebook,
+.charsheet .sheet-thegreataxe,
+.charsheet .sheet-theknife,
+.charsheet .sheet-thepistol,
+.charsheet .sheet-therifle,
+.charsheet .sheet-theshotgun,
+.charsheet .sheet-thespear,
+.charsheet .sheet-thestaff,
+.charsheet .sheet-thesword,
+.charsheet .sheet-thearmour2,
+.charsheet .sheet-thebludgeon2,
+.charsheet .sheet-thebook2,
+.charsheet .sheet-thegreataxe2,
+.charsheet .sheet-theknife2,
+.charsheet .sheet-thepistol2,
+.charsheet .sheet-therifle2,
+.charsheet .sheet-theshotgun2,
+.charsheet .sheet-thespear2,
+.charsheet .sheet-thestaff2,
+.charsheet .sheet-thesword2 {
+    display: none;
+}
+
+/* show the selected archetype */
+.charsheet .sheet-weapontoggle[value="thearmour"] ~ div.sheet-thearmour,
+.charsheet .sheet-weapontoggle[value="thebludgeon"] ~ div.sheet-thebludgeon,
+.charsheet .sheet-weapontoggle[value="thebook"] ~ div.sheet-thebook,
+.charsheet .sheet-weapontoggle[value="thegreataxe"] ~ div.sheet-thegreataxe,
+.charsheet .sheet-weapontoggle[value="theknife"] ~ div.sheet-theknife,
+.charsheet .sheet-weapontoggle[value="thepistol"] ~ div.sheet-thepistol,
+.charsheet .sheet-weapontoggle[value="therifle"] ~ div.sheet-therifle,
+.charsheet .sheet-weapontoggle[value="theshotgun"] ~ div.sheet-theshotgun, 
+.charsheet .sheet-weapontoggle[value="thespear"] ~ div.sheet-thespear,
+.charsheet .sheet-weapontoggle[value="thestaff"] ~ div.sheet-thestaff,
+.charsheet .sheet-weapontoggle[value="thesword"] ~ div.sheet-thesword,
+.charsheet .sheet-weapontoggle[value="thearmour2"] ~ div.sheet-thearmour2,
+.charsheet .sheet-weapontoggle[value="thebludgeon2"] ~ div.sheet-thebludgeon2,
+.charsheet .sheet-weapontoggle[value="thebook2"] ~ div.sheet-thebook2,
+.charsheet .sheet-weapontoggle[value="thegreataxe2"] ~ div.sheet-thegreataxe2,
+.charsheet .sheet-weapontoggle[value="theknife2"] ~ div.sheet-theknife2,
+.charsheet .sheet-weapontoggle[value="thepistol2"] ~ div.sheet-thepistol2,
+.charsheet .sheet-weapontoggle[value="therifle2"] ~ div.sheet-therifle2,
+.charsheet .sheet-weapontoggle[value="theshotgun2"] ~ div.sheet-theshotgun2, 
+.charsheet .sheet-weapontoggle[value="thespear2"] ~ div.sheet-thespear2,
+.charsheet .sheet-weapontoggle[value="thestaff2"] ~ div.sheet-thestaff2,
+.charsheet .sheet-weapontoggle[value="thesword2"] ~ div.sheet-thesword2 {
+    display: block;
+}
